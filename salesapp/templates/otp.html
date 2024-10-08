@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}otp form{% endblock %}
+{% block content %}
+
+
+
+
+<h1>Otp varification</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.non_form_errors }}
+    
+    <div class='form-group'>
+        {{ form.otp.label_tag }}
+        {{ form.otp.as_p }}
+        {{ form.otp.errors }}
+    <button type='button'>verify</button>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}

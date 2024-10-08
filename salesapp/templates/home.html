@@ -6,9 +6,10 @@
 
 <h1>Login user</h1>
 
-{{ request.user.username }}
+{{ request.user.username }}<br />
+{{ request.user.password }}<br/>
 
-
+<a href='{% url 'logout'  %}'>Logout</a>
 
 
 

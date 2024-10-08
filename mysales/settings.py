@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mysales.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,8 +117,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'statics',  # Directory for additional static files
+]
+
+# Optional: if you want to collect all static files into one directory for production use
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # The directory where collectstatic will put static files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = 'login' # if there is no login redirect login page
+
+LOGIN_REDIRECT_URL = 'home' # if sucessfull login then it redirects to the home page
+
+LOGOUT_REDIRECT_URL = 'home' # if sucess logout it redirects to the home page
